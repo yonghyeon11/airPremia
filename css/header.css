@@ -462,11 +462,11 @@ html.m-menu-scroll, html.m-menu-scroll > body {
     background-color:#fff;
     text-align:center;
     z-index:500;
+    line-height: 50px;
 }
 
 .m-header > .logo {
     position: relative;
-    top: 30%;
     width:82px;
     display:inline-block;
 }
