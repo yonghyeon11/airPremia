@@ -1,40 +1,554 @@
 <!DOCTYPE html>
-<html lang="kr">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>에어프레미아 | Air Premia</title>
+
+    <link rel="icon" href="/img/favicon.ico">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css">
+
+
+    <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            color: #000000;
+            text-decoration: none;
+        }
+        body {
+            color: #fff;
+            font-family: "NexonLv1Gothic";
+            font-weight: 300;
+            background-color: #111;
+        }
+
+        #header{
+            width: 100%;
+            height: 80px;
+            position: fixed;
+            z-index: 1000;
+        }
+
+        /* parallax__cont */
+        #parallax__cont {
+            overflow: hidden;
+        }
+        .parallax__item {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .parallax__item__img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #fff;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .parallax__item__img ul{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: antiquewhite;
+        }
+        .parallax__item__img li{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+
+        .parallax__item__img video{
+            position: absolute;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <div id="wrap">
-        <header id="header"></header>
-        <section id="section1" class="parallax__item">
-            <div class="video-container">
-                <video src="/img/video1.mp4" muted autoplay loop></video> 
+        <header id="header">
+            <div class="header">
+                <div class="header-inner">
+                    <a href="/index2.html" class="logo img-box block">
+                        <img src="/img/AirPremia_Logo_Full-Color.png" alt="logo">
+                    </a>
+                    <nav class="top-menu-bar row line-height-0">
+                        <ul class="row">
+                            <li class="cell menu-1">
+                                <a href="#">예매</a>
+                                <ul>
+                                    <li><a href="#" class="delay-1">항공권 예매</a></li>
+                                    <li><a href="#" class="delay-2">포인트 에매</a></li>
+                                    <li><a href="#" class="delay-3">이벤트</a></li>
+                                    <li><a href="#" class="delay-4">운임 안내</a></li>
+                                </ul>
+                                <div class="sub-menu-height sub-menu-height-1"></div>
+                            </li>
+                            <li class="cell menu-2">
+                                <a href="#">서비스 안내</a>
+                                <ul class="row">
+                                    <li class="cell">
+                                        <ul>
+                                            <li><p>도움이 필요한 손님</p></li>
+                                            <li><a href="#" class="delay-2">유아 동반 손님</a></li>
+                                            <li><a href="#" class="delay-3">혼자 여행하는 손님</a></li>
+                                            <li><a href="#" class="delay-4">임산부 손님</a></li>
+                                            <li><a href="#" class="delay-5">몸이 불편한 손님</a></li>
+                                            <li><a href="#" class="delay-6">반려동물 동반 손님</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="cell">
+                                        <ul>
+                                            <li><p>수하물</p></li>
+                                            <li><a href="#" class="delay-2">운송 제한 물품</a></li>
+                                            <li><a href="#" class="delay-3">무료 수하물</a></li>
+                                            <li><a href="#" class="delay-4">초과 수하물</a></li>
+                                            <li><a href="#" class="delay-5">특수 수하물</a></li>
+                                            <li><a href="#" class="delay-5">수하물 파손/분실</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="cell">
+                                        <ul>
+                                            <li><p>부가 서비스 구매</p></li>
+                                            <li><a href="#" class="delay-2">사전 수하물 구매</a></li>
+                                            <li><a href="#" class="delay-3">사전 좌석 구매</a></li>
+                                            <li><a href="#" class="delay-4">공항에서의 옆좌석 구매</a></li>
+                                            <li><a href="#" class="delay-5">수하물 용품 구매</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="cell">
+                                        <ul>
+                                            <li><p>취항지 공항 정보</p></li>
+                                            <li><a href="#" class="delay-2">인천 국제 공항</a></li>
+                                            <li><a href="#" class="delay-3">동북 아시아</a></li>
+                                            <li><a href="#" class="delay-4">동남 아시아</a></li>
+                                            <li><a href="#" class="delay-5">미주</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="sub-menu-height sub-menu-height-2"></div>
+                            </li>
+                            <li class="cell menu-3">
+                                <a href="#">프레미아 멤버스</a>
+                                <ul>
+                                    <li><a href="#" class="delay-1">회원 등급</a></li>
+                                    <li><a href="#" class="delay-2">포인트 적립</a></li>
+                                    <li><a href="#" class="delay-3">포인트 사용</a></li>
+                                </ul>
+                                <div class="sub-menu-height sub-menu-height-3"></div>
+                            </li>
+                        </ul>
+                        <ul class="row cell-right">
+                            <li class="cell menu-4">
+                                <a href="#">기내</a>
+                                <ul class="row">
+                                    <li class="cell">
+                                        <ul>
+                                            <li><p>클래스별 서비스</p></li>
+                                            <li><a href="#" class="delay-2">프리미엄 이코노미</a></li>
+                                            <li><a href="#" class="delay-3">이코노미</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="cell">
+                                        <ul>
+                                            <li><p>기내 서비스</p></li>
+                                            <li><a href="#" class="delay-2">기내식</a></li>
+                                            <li><a href="#" class="delay-3">기내 엔터테인먼트</a></li>
+                                            <li><a href="#" class="delay-4">기내 와이파이</a></li>
+                                            <li><a href="#" class="delay-5">항공기 소개</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="sub-menu-height sub-menu-height-4"></div>
+                            </li>
+                            <li class="cell menu-5">
+                                <a href="#">조회/체크인</a>
+                                <ul>
+                                    <li><a href="#" class="delay-1">예약 조회</a></li>
+                                    <li><a href="#" class="delay-2">온라인 체크인</a></li>
+                                    <li><a href="#" class="delay-3">출/도착 조회</a></li>
+                                    <li><a href="#" class="delay-4">운항 스케줄</a></li>
+                                    <li><a href="#" class="delay-5">탑승 수속 안내</a></li>
+                                </ul>
+                                <div class="sub-menu-height sub-menu-height-5"></div>
+                            </li>
+                            <li class="cell menu-6">
+                                <a href="#">마이페이지</a>
+                                <ul>
+                                    <li><a href="#" class="delay-1">로그인</a></li>
+                                    <li><a href="#" class="delay-2">회원가입</a></li>
+                                </ul>
+                                <div class="sub-menu-height sub-menu-height-5"></div>
+                            </li>
+                        </ul>
+                        <div class="sub-menu-bg"></div>
+
+                    </nav>
+            
+                    <div class="search">
+                        <a href="#">
+                            <span>검색</span><img src="https://www.dacorkorea.com/images/icon-search.png" alt="search">
+                        </a>
+                    </div>
+                    
+                    <div class="search-on">
+                        <div class="search-inner">
+                            <a href="#" class="logo img-box block">
+                                <img src="/img/AirPremia_Logo_Full-Color.png" alt="logo">
+                            </a>
+                            <div class="search-box">
+                                <input type="search" placeholder="검색어를 입력 해 주세요">
+                                <a href="#"><img src="https://www.dacorkorea.com/images/icon-search.png" alt="search"></a>
+                            </div>
+                            <div class="close-btn"><img src="https://www.dacorkorea.com/images/icon-search-close.png" alt="close"></div>
+                            <div class="recommend-word">
+                                <p><a href="#" class="block">추천 검색어</a></p>
+                                <ul>
+                                    <li><a href="#" class="block delay-1">포인트 적립</a></li>
+                                    <li><a href="#" class="block delay-2">사전 좌석 배정</a></li>
+                                    <li><a href="#" class="block delay-3">체크인</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
-        <article></article>
-        <article></article>
-        <footer></footer>
+            
+            <!-- 모바일 헤더 -->
+            <div class="m-header">
+                <a href="#" class="logo img-box block">
+                    <img src="/img/AirPremia_Logo_Full-Color.png" alt="logo">
+                </a>
+                <a href="#" class="search img-box block">
+                    <img src="https://www.dacorkorea.com/images/icon-search.png" alt="search">
+                </a>
+                <div class="m-menu-btn">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="mobile-mask"></div>
+                <div class="m-menu-list">
+                    <ul>
+                        <li class="delay-1">
+                            <a href="#">예매<span class="cell-right"><i class="fas fa-chevron-down"></i></span></a>
+                            <ul>
+                                <li><a href="#">항공권 예매</a></li>
+                                <li><a href="#">포인트 예매</a></li>
+                                <li><a href="#">이벤트</a></li>
+                                <li><a href="#">운임 안내</a></li>
+                            </ul>
+                        </li>
+                        <li class="delay-2">
+                            <a href="#">서비스 안내<span class="cell-right"><i class="fas fa-chevron-down"></i></span></a>
+                            <ul>
+                                <li>
+                                    <ul>
+                                        <li><a href="#">유아 동반 손님</a></li>
+                                        <li><a href="#">혼자 여행하는 손님</a></li>
+                                        <li><a href="#">임산부 손님</a></li>
+                                        <li><a href="#">몸이 불편한 손님</a></li>
+                                        <li><a href="#">반려동물 동반 손님</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul>
+                                        <li><a href="#">운송 제한 물품</a></li>
+                                        <li><a href="#">무료 수하물</a></li>
+                                        <li><a href="#">초과 수하물</a></li>
+                                        <li><a href="#">특수 수하물</a></li>
+                                        <li><a href="#">수하물 파손/분실</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul>
+                                        <li><a href="#">사전 수하물 구매</a></li>
+                                        <li><a href="#">사전 좌석 구매</a></li>
+                                        <li><a href="#">공항에서의 옆좌석 구매</a></li>
+                                        <li><a href="#">수하물 용품 구매</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul>
+                                        <li><a href="#">인천 국제 공항</a></li>
+                                        <li><a href="#">동북 아시아</a></li>
+                                        <li><a href="#">동남 아시아</a></li>
+                                        <li><a href="#">미주</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="delay-3">
+                            <a href="#">프레미아 멤버스<span class="cell-right"><i class="fas fa-chevron-down"></i></span></a>
+                            <ul>
+                                <li><a href="#">회원 등급</a></li>
+                                <li><a href="#">포인트 적립</a></li>
+                                <li><a href="#">포인트 사용</a></li>
+                            </ul>
+                        </li>
+                        <li class="delay-4">
+                            <a href="#">기내<span class="cell-right"><i class="fas fa-chevron-down"></i></span></a>
+                            <ul>
+                                <li>
+                                    <ul>
+                                        <li><p>클래스별 서비스</p></li>
+                                        <li><a href="#">프리미엄 이코노미</a></li>
+                                        <li><a href="#">이코노미</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul>
+                                        <li><p>기내 서비스</p></li>
+                                        <li><a href="#">기내식</a></li>
+                                        <li><a href="#">기내 엔터테인먼트</a></li>
+                                        <li><a href="#">기내 와이파이</a></li>
+                                        <li><a href="#">항공기 소개</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="delay-5">
+                            <a href="#" class="row">조회/체크인<span class="cell-right"><i class="fas fa-chevron-down"></i></span></a>
+                            <ul>
+                                <li><a href="#">예약 조회</a></li>
+                                <li><a href="#">온라인 체크인</a></li>
+                                <li><a href="#">출/도착 조회</a></li>
+                                <li><a href="#">운항 스케줄</a></li>
+                                <li><a href="#">탑승 수속 안내</a></li>
+                            </ul>
+                        </li>
+                        <li class="delay-6">
+                            <a href="#" class="row">마이 페이지<span class="cell-right"><i class="fas fa-chevron-down"></i></span></a>
+                            <ul>
+                                <li><a href="#">로그인</a></li>
+                                <li><a href="#">회원가입</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="m-search-on">
+                    <div class="m-search-box">
+                        <input type="search" placeholder="검색어를 입력 해 주세요">
+                        <a href="#" class="img-box block"><img src="https://www.dacorkorea.com/images/icon-search.png" alt="search"></a>
+                    </div>
+                    <div class="m-recommend-word">
+                            <p><a href="#" class="block" style="font-weight: bold;">추천 검색어</a></p>
+                        <ul>
+                            <li><a href="#" class="block delay-1">포인트 적립</a></li>
+                            <li><a href="#" class="block delay-2">사전 좌석 지정</a></li>
+                            <li><a href="#" class="block delay-3">체크인</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- //parallax__title  -->
+    
+        <main id="parallax__cont">
+            <section id="section1" class="parallax__item">
+                <div class="parallax__item__img">
+                    <video src="/img/video1.mp4" autoplay muted loop playsinline></video>
+                </div>
+            </section>
+            <!-- //section1 -->
+
+
+            <section class="parallax__item">
+                <div class="parallax__item__img">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="parallax__item">
+                <div class="parallax__item__img">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </section>
+    
+           
+        </main>
+
     </div>
+
+    
+
+    <!-- 제이쿼리 불러오기 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollToPlugin.min.js"></script>
-
-
     <script>
         const panel = document.querySelector("#section1");
 
-        ScrollTrigger.create({
-            trigger: panel,
-            start: "top top",
-            pin: true,
-            pinSpacing: false
-        });
+            ScrollTrigger.create({
+                trigger: panel,
+                start: "top top",
+                pin: true,
+                pinSpacing: false
+            });
+
+    </script>
+
+    <script>
+        // 상단 메뉴 관련
+$('.header > .header-inner > .top-menu-bar > ul > li').mouseenter(function(){
+    $(this).addClass('active');
+    $(this).find('> a').addClass('active');
+});
+
+$('.header > .header-inner > .top-menu-bar > ul > li').mouseleave(function(){
+    $(this).removeClass('active');
+    $(this).find('> a').removeClass('active');
+});
+
+// 상단 2차 메뉴 배경
+$('.header > .header-inner > .top-menu-bar > ul > .menu-1').mouseenter(function(){
+    $('.sub-menu-bg').css('height','164px');
+});
+$('.header > .header-inner > .top-menu-bar > ul > .menu-1').mouseleave(function(){
+    $('.sub-menu-bg').css('height','');
+});
+
+$('.header > .header-inner > .top-menu-bar > ul > .menu-2').mouseenter(function(){
+    $('.sub-menu-bg').css('height','238px');
+});
+$('.header > .header-inner > .top-menu-bar > ul > .menu-2').mouseleave(function(){
+    $('.sub-menu-bg').css('height','');
+});
+
+$('.header > .header-inner > .top-menu-bar > ul > .menu-3').mouseenter(function(){
+    $('.sub-menu-bg').css('height','164px');
+});
+$('.header > .header-inner > .top-menu-bar > ul > .menu-3').mouseleave(function(){
+    $('.sub-menu-bg').css('height','');
+});
+
+$('.header > .header-inner > .top-menu-bar > ul > .menu-4').mouseenter(function(){
+    $('.sub-menu-bg').css('height','238px');
+});
+$('.header > .header-inner > .top-menu-bar > ul > .menu-4').mouseleave(function(){
+    $('.sub-menu-bg').css('height','');
+});
+
+$('.header > .header-inner > .top-menu-bar > ul > .menu-5').mouseenter(function(){
+    $('.sub-menu-bg').css('height','238px');
+});
+$('.header > .header-inner > .top-menu-bar > ul > .menu-5').mouseleave(function(){
+    $('.sub-menu-bg').css('height','');
+});
+$('.header > .header-inner > .top-menu-bar > ul > .menu-6').mouseenter(function(){
+    $('.sub-menu-bg').css('height','164px');
+});
+$('.header > .header-inner > .top-menu-bar > ul > .menu-6').mouseleave(function(){
+    $('.sub-menu-bg').css('height','');
+});
+
+
+
+// 서치 박스
+$('.header > .header-inner > .search, .search-on > .search-inner > .close-btn ').click(function(){
+    $('.header > .header-inner > .search-on').toggleClass('active');
+});
+
+// 모바일 메뉴 버튼
+$('.m-header > .m-menu-btn').click(function(){
+    if ( $(this).hasClass('active') ){
+        $('html').removeClass('m-menu-scroll');
+        
+        $(this).removeClass('active');
+        $(this).siblings('.mobile-mask').css('height','');
+        $(this).siblings('.m-menu-list').removeClass('active');
+    }
+    else {
+        $('html').addClass('m-menu-scroll');
+        
+        $('.m-header > .search > img').attr('src','https://www.dacorkorea.com/images/icon-search.png');
+        $('.m-header > .m-search-on').removeClass('active');
+        
+        $(this).siblings('.m-menu-list').find(' > ul > li.active').removeClass('active');
+        $(this).siblings('.m-menu-list').find(' > ul > li > ul').slideUp(0);
+        
+        $(this).addClass('active');
+        $(this).siblings('.mobile-mask').css('height','100%');
+        $(this).siblings('.m-menu-list').addClass('active');
+    };
+});
+
+// 모바일 메뉴 리스트
+$('.m-header > .m-menu-list > ul > li').click(function(){
+    if ( $(this).hasClass('active') ) {
+        $(this).find(' > ul').slideUp(300);
+        $(this).removeClass('active');
+    }
+    else {
+        $(this).siblings('li.active').removeClass('active');
+        $(this).siblings().find(' > ul').slideUp(300);
+        $(this).find(' > ul').slideDown(300);
+        $(this).addClass('active');
+    }
+});
+
+$('.m-header > .m-menu-list > ul > li > ul').click(function(e){
+    e.stopPropagation();
+});
+
+// 모바일 서치 온
+$('.m-header > .search').click(function(){
+    if ( $('.m-header > .m-search-on').hasClass('active') ){
+        $('html').removeClass('m-menu-scroll');
+        
+        $(this).find(' > img').attr('src','https://www.dacorkorea.com/images/icon-search.png');
+        $(this).siblings('.mobile-mask').css('height','');
+        $('.m-header > .m-search-on').removeClass('active');
+    }
+    else {
+        $('html').addClass('m-menu-scroll');
+        
+        $('.m-header > .m-menu-btn').removeClass('active');
+        $(this).siblings('.m-menu-list').removeClass('active');
+        
+        $(this).find(' > img').attr('src','https://www.dacorkorea.com/images/icon-search-close.png');
+        $(this).siblings('.mobile-mask').css('height','100%');
+        $('.m-header > .m-search-on').addClass('active');
+    }
+});
+
+
+
     </script>
 </body>
 </html>
