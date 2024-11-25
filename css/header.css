@@ -542,6 +542,9 @@ html.m-menu-scroll, html.m-menu-scroll > body {
 }
 
 .m-header > .m-menu-list ul{
+    max-height: 500px; /* 원하는 최대 높이 */
+    overflow-y: auto;  /* 세로 스크롤 활성화 */
+    overflow-x: hidden; /* 가로 스크롤 숨기기 */
     /* margin-top: 20px; */
 }
 
@@ -605,6 +608,9 @@ html.m-menu-scroll, html.m-menu-scroll > body {
     padding:10px 48px;
     background-color:#f9f9f9;
     display:none;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .m-header > .m-menu-list > ul > li > ul > li > a {
