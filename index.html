@@ -99,20 +99,19 @@
         }
 
         .reservation-box{
-            background-image: url(/img/NY.jpg);
+            background-image: url(/img/background.jpg);
             width: 100%;
-            height: 40%;
+            height: 50%;
             background-repeat: no-repeat;
-            background-size: 100% auto;
             position: relative;
             display: flex;
             align-items: center;
+            padding: 0 20px 0 20px;
         }
 
         .reservation-box .resevation{
             width: 20%;
-            background: #fff;
-            height: 500px;
+            background-color: rgb(255, 255, 255,0.8);
         }
 
 
@@ -125,31 +124,34 @@
 
             @media (max-width: 1024px) {
                 .parallax__item__img {
-                    height: 50vh; /* 태블릿 */
+                    height: 80vh; /* 태블릿 */
+                    overflow-y:scroll;
+                    overflow-y:hidden
+
                 }
 
                 #section1{
-                    height: 50vh;
+                    height: 80vh;
                 }
             }
 
             @media(max-width: 768px) {
                 .parallax__item__img {
-                    height: 38vh; /* 작은 태블릿 */
+                    height: 60vh; /* 작은 태블릿 */
                 }
 
                 #section1{
-                    height: 38vh;
+                    height: 60vh;
                 }
             }
 
             @media (max-width: 479px) {
                 .parallax__item__img {
-                    height: 23vh; /* 작은 태블릿 */
+                    height: 50vh; /* 작은 태블릿 */
                 }
 
                 #section1{
-                    height: 23vh;
+                    height: 50vh;
                 }
         }
 
@@ -172,6 +174,11 @@
 
         .trip-data li{
             color: #000000;
+            cursor: pointer;
+        }
+
+        .trip-data li:hover{
+            background-color: #fafafa;
         }
 
         .reservation {
@@ -194,7 +201,11 @@
         }
 
         .select-box{
+            background: #ffffff;
             position: relative;
+            width: 100%;
+            padding: 1rem 0;
+            border-bottom: 0.0625rem solid #e5e5e5;
         }
 
         .select-box ul{
@@ -203,12 +214,22 @@
             padding: 0;
             position: absolute;
             top: 0; /* .reservation의 위쪽과 정렬 */
-            left: 10%; /* .reservation의 오른쪽으로 배치 */
+            left: 100%; /* .reservation의 오른쪽으로 배치 */
             width: 200px; /* 드롭다운 메뉴 너비 */
             background-color: #fff;
             border: 1px solid #ccc;
             display: none; /* 기본적으로 숨김 */
             z-index: 10; /* 다른 요소보다 위에 표시 */
+        }
+
+        #dropdown-button{
+            background: #ffffff;
+            width: 100%;
+            text-align: left;
+        }
+
+        .resevation h3{
+            font-size: 25px;
         }
     </style>
 </head>
@@ -532,11 +553,11 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="selct-box">
-                                            <button id="dropdown-button">
+                                        <div class="select-box">
+                                            <button id="dropdown-button2">
                                                 <span>도착지</span>
                                             </button>
-                                            <ul id="dropdown-menu">
+                                            <ul id="dropdown-menu2">
                                                 <li><span>서울/인천</span></li>
                                                 <li><span>홍콩</span></li>
                                                 <li><span>다낭</span></li>
@@ -625,127 +646,146 @@
 
     <script>
         // 상단 메뉴 관련
-$('.header > .header-inner > .top-menu-bar > ul > li').mouseenter(function(){
-    $(this).addClass('active');
-    $(this).find('> a').addClass('active');
-});
+        $('.header > .header-inner > .top-menu-bar > ul > li').mouseenter(function(){
+            $(this).addClass('active');
+            $(this).find('> a').addClass('active');
+        });
 
-$('.header > .header-inner > .top-menu-bar > ul > li').mouseleave(function(){
-    $(this).removeClass('active');
-    $(this).find('> a').removeClass('active');
-});
+        $('.header > .header-inner > .top-menu-bar > ul > li').mouseleave(function(){
+            $(this).removeClass('active');
+            $(this).find('> a').removeClass('active');
+        });
 
-// 상단 2차 메뉴 배경
-$('.header > .header-inner > .top-menu-bar > ul > .menu-1').mouseenter(function(){
-    $('.sub-menu-bg').css('height','164px');
-});
-$('.header > .header-inner > .top-menu-bar > ul > .menu-1').mouseleave(function(){
-    $('.sub-menu-bg').css('height','');
-});
+        // 상단 2차 메뉴 배경
+        $('.header > .header-inner > .top-menu-bar > ul > .menu-1').mouseenter(function(){
+            $('.sub-menu-bg').css('height','164px');
+        });
+        $('.header > .header-inner > .top-menu-bar > ul > .menu-1').mouseleave(function(){
+            $('.sub-menu-bg').css('height','');
+        });
 
-$('.header > .header-inner > .top-menu-bar > ul > .menu-2').mouseenter(function(){
-    $('.sub-menu-bg').css('height','238px');
-});
-$('.header > .header-inner > .top-menu-bar > ul > .menu-2').mouseleave(function(){
-    $('.sub-menu-bg').css('height','');
-});
+        $('.header > .header-inner > .top-menu-bar > ul > .menu-2').mouseenter(function(){
+            $('.sub-menu-bg').css('height','238px');
+        });
+        $('.header > .header-inner > .top-menu-bar > ul > .menu-2').mouseleave(function(){
+            $('.sub-menu-bg').css('height','');
+        });
 
-$('.header > .header-inner > .top-menu-bar > ul > .menu-3').mouseenter(function(){
-    $('.sub-menu-bg').css('height','164px');
-});
-$('.header > .header-inner > .top-menu-bar > ul > .menu-3').mouseleave(function(){
-    $('.sub-menu-bg').css('height','');
-});
+        $('.header > .header-inner > .top-menu-bar > ul > .menu-3').mouseenter(function(){
+            $('.sub-menu-bg').css('height','164px');
+        });
+        $('.header > .header-inner > .top-menu-bar > ul > .menu-3').mouseleave(function(){
+            $('.sub-menu-bg').css('height','');
+        });
 
-$('.header > .header-inner > .top-menu-bar > ul > .menu-4').mouseenter(function(){
-    $('.sub-menu-bg').css('height','238px');
-});
-$('.header > .header-inner > .top-menu-bar > ul > .menu-4').mouseleave(function(){
-    $('.sub-menu-bg').css('height','');
-});
+        $('.header > .header-inner > .top-menu-bar > ul > .menu-4').mouseenter(function(){
+            $('.sub-menu-bg').css('height','238px');
+        });
+        $('.header > .header-inner > .top-menu-bar > ul > .menu-4').mouseleave(function(){
+            $('.sub-menu-bg').css('height','');
+        });
 
-$('.header > .header-inner > .top-menu-bar > ul > .menu-5').mouseenter(function(){
-    $('.sub-menu-bg').css('height','238px');
-});
-$('.header > .header-inner > .top-menu-bar > ul > .menu-5').mouseleave(function(){
-    $('.sub-menu-bg').css('height','');
-});
-$('.header > .header-inner > .top-menu-bar > ul > .menu-6').mouseenter(function(){
-    $('.sub-menu-bg').css('height','164px');
-});
-$('.header > .header-inner > .top-menu-bar > ul > .menu-6').mouseleave(function(){
-    $('.sub-menu-bg').css('height','');
-});
+        $('.header > .header-inner > .top-menu-bar > ul > .menu-5').mouseenter(function(){
+            $('.sub-menu-bg').css('height','238px');
+        });
+        $('.header > .header-inner > .top-menu-bar > ul > .menu-5').mouseleave(function(){
+            $('.sub-menu-bg').css('height','');
+        });
+        $('.header > .header-inner > .top-menu-bar > ul > .menu-6').mouseenter(function(){
+            $('.sub-menu-bg').css('height','164px');
+        });
+        $('.header > .header-inner > .top-menu-bar > ul > .menu-6').mouseleave(function(){
+            $('.sub-menu-bg').css('height','');
+        });
 
 
 
-// 서치 박스
-$('.header > .header-inner > .search, .search-on > .search-inner > .close-btn ').click(function(){
-    $('.header > .header-inner > .search-on').toggleClass('active');
-});
+        // 서치 박스
+        $('.header > .header-inner > .search, .search-on > .search-inner > .close-btn ').click(function(){
+            $('.header > .header-inner > .search-on').toggleClass('active');
+        });
 
-// 모바일 메뉴 버튼
-$('.m-header > .m-menu-btn').click(function(){
-    if ( $(this).hasClass('active') ){
-        $('html').removeClass('m-menu-scroll');
-        
-        $(this).removeClass('active');
-        $(this).siblings('.mobile-mask').css('height','');
-        $(this).siblings('.m-menu-list').removeClass('active');
-    }
-    else {
-        $('html').addClass('m-menu-scroll');
-        
-        $('.m-header > .search > img').attr('src','https://www.dacorkorea.com/images/icon-search.png');
-        $('.m-header > .m-search-on').removeClass('active');
-        
-        $(this).siblings('.m-menu-list').find(' > ul > li.active').removeClass('active');
-        $(this).siblings('.m-menu-list').find(' > ul > li > ul').slideUp(0);
-        
-        $(this).addClass('active');
-        $(this).siblings('.mobile-mask').css('height','100%');
-        $(this).siblings('.m-menu-list').addClass('active');
-    };
-});
+        // 모바일 메뉴 버튼
+        $('.m-header > .m-menu-btn').click(function(){
+            if ( $(this).hasClass('active') ){
+                $('html').removeClass('m-menu-scroll');
+                
+                $(this).removeClass('active');
+                $(this).siblings('.mobile-mask').css('height','');
+                $(this).siblings('.m-menu-list').removeClass('active');
+            }
+            else {
+                $('html').addClass('m-menu-scroll');
+                
+                $('.m-header > .search > img').attr('src','https://www.dacorkorea.com/images/icon-search.png');
+                $('.m-header > .m-search-on').removeClass('active');
+                
+                $(this).siblings('.m-menu-list').find(' > ul > li.active').removeClass('active');
+                $(this).siblings('.m-menu-list').find(' > ul > li > ul').slideUp(0);
+                
+                $(this).addClass('active');
+                $(this).siblings('.mobile-mask').css('height','100%');
+                $(this).siblings('.m-menu-list').addClass('active');
+            };
+        });
 
-// 모바일 메뉴 리스트
-$('.m-header > .m-menu-list > ul > li').click(function(){
-    if ( $(this).hasClass('active') ) {
-        $(this).find(' > ul').slideUp(300);
-        $(this).removeClass('active');
-    }
-    else {
-        $(this).siblings('li.active').removeClass('active');
-        $(this).siblings().find(' > ul').slideUp(300);
-        $(this).find(' > ul').slideDown(300);
-        $(this).addClass('active');
-    }
-});
+        // 모바일 메뉴 리스트
+        $('.m-header > .m-menu-list > ul > li').click(function(){
+            if ( $(this).hasClass('active') ) {
+                $(this).find(' > ul').slideUp(300);
+                $(this).removeClass('active');
+            }
+            else {
+                $(this).siblings('li.active').removeClass('active');
+                $(this).siblings().find(' > ul').slideUp(300);
+                $(this).find(' > ul').slideDown(300);
+                $(this).addClass('active');
+            }
+        });
 
-$('.m-header > .m-menu-list > ul > li > ul').click(function(e){
-    e.stopPropagation();
-});
+        $('.m-header > .m-menu-list > ul > li > ul').click(function(e){
+            e.stopPropagation();
+        });
 
-// 모바일 서치 온
-$('.m-header > .search').click(function(){
-    if ( $('.m-header > .m-search-on').hasClass('active') ){
-        $('html').removeClass('m-menu-scroll');
-        
-        $(this).find(' > img').attr('src','https://www.dacorkorea.com/images/icon-search.png');
-        $(this).siblings('.mobile-mask').css('height','');
-        $('.m-header > .m-search-on').removeClass('active');
-    }
-    else {
-        $('html').addClass('m-menu-scroll');
-        
-        $('.m-header > .m-menu-btn').removeClass('active');
-        $(this).siblings('.m-menu-list').removeClass('active');
-        
-        $(this).find(' > img').attr('src','https://www.dacorkorea.com/images/icon-search-close.png');
-        $(this).siblings('.mobile-mask').css('height','100%');
-        $('.m-header > .m-search-on').addClass('active');
-    }
-});
+        // 모바일 서치 온
+        $('.m-header > .search').click(function(){
+            if ( $('.m-header > .m-search-on').hasClass('active') ){
+                $('html').removeClass('m-menu-scroll');
+                
+                $(this).find(' > img').attr('src','https://www.dacorkorea.com/images/icon-search.png');
+                $(this).siblings('.mobile-mask').css('height','');
+                $('.m-header > .m-search-on').removeClass('active');
+            }
+            else {
+                $('html').addClass('m-menu-scroll');
+                
+                $('.m-header > .m-menu-btn').removeClass('active');
+                $(this).siblings('.m-menu-list').removeClass('active');
+                
+                $(this).find(' > img').attr('src','https://www.dacorkorea.com/images/icon-search-close.png');
+                $(this).siblings('.mobile-mask').css('height','100%');
+                $('.m-header > .m-search-on').addClass('active');
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+        const menuButton = document.querySelector(".m-menu-btn");
+        const menuList = document.querySelector(".m-menu-list > ul");
+
+        // 초기 상태에서 스크롤 숨김
+        menuList.style.overflowY = "hidden";
+
+        menuButton.addEventListener("click", function () {
+            // 메뉴가 나타날 때만 스크롤 활성화
+            if (menuList.style.display === "none" || !menuList.style.display) {
+            menuList.style.display = "block";
+            menuList.style.overflowY = "auto"; // 스크롤 활성화
+            } else {
+            menuList.style.display = "none";
+            menuList.style.overflowY = "hidden"; // 스크롤 숨김
+            }
+        });
+        });
 
 
 
@@ -755,6 +795,35 @@ $('.m-header > .search').click(function(){
         document.addEventListener("DOMContentLoaded", () => {
         const button = document.getElementById("dropdown-button");
         const menu = document.getElementById("dropdown-menu");
+        const options = menu.querySelectorAll("li");
+
+        // 버튼 클릭 시 드롭다운 메뉴 토글
+        button.addEventListener("click", () => {
+            const isMenuVisible = menu.style.display === "block";
+            menu.style.display = isMenuVisible ? "none" : "block";
+        });
+
+        // 옵션 클릭 시 버튼 텍스트 변경 및 메뉴 닫기
+        options.forEach((option) => {
+            option.addEventListener("click", () => {
+                const selectedText = option.textContent;
+                button.querySelector("span").textContent = selectedText; // 버튼 텍스트 변경
+                menu.style.display = "none"; // 메뉴 닫기
+            });
+        });
+
+        // 드롭다운 외부 클릭 시 메뉴 닫기
+        document.addEventListener("click", (event) => {
+            if (!button.contains(event.target) && !menu.contains(event.target)) {
+                menu.style.display = "none";
+            }
+        });
+    });
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const button = document.getElementById("dropdown-button2");
+        const menu = document.getElementById("dropdown-menu2");
         const options = menu.querySelectorAll("li");
 
         // 버튼 클릭 시 드롭다운 메뉴 토글
