@@ -12,226 +12,20 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
+    <!--웹 폰트-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/reset.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        a {
-            color: #000000;
-            text-decoration: none;
-        }
-        body {
-            font-family: "NexonLv1Gothic";
-            font-weight: 300;
-            background-color: #000000;
-        }
+    <link rel="stylesheet" href="/css/style.css">
 
-        #header{
-            width: 100%;
-            height: 80px;
-            position: fixed;
-            z-index: 1000;
-        }
-
-        /* parallax__cont */
-        #parallax__cont {
-            overflow: hidden;
-        }
-        .parallax__item {
-            width: 100%;
-            height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        .parallax__item__img {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: #fff;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .reservation-con {
-            display: flex;
-            justify-content: center;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: #fff;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .parallax__item__img ul{
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: antiquewhite;
-        }
-        .parallax__item__img li{
-            width: 100px;
-            height: 100px;
-            background-color: aquamarine;
-        }
-
-        .parallax__item__img video{
-            position: absolute;
-            width: 100%;
-            top: 5%;
-        }
-
-        .reservation-box{
-            background-image: url(/img/background.jpg);
-            width: 100%;
-            height: 50%;
-            background-repeat: no-repeat;
-            position: relative;
-            display: flex;
-            align-items: center;
-            padding: 0 20px 0 20px;
-        }
-
-        .reservation-box .resevation{
-            width: 20%;
-            background-color: rgb(255, 255, 255,0.8);
-        }
-
-
-        /* 기본 스타일 */
-        section {
-            width: 100%;
-            transition: height 0.3s ease-in-out; /* 높이 변경 시 부드럽게 애니메이션 */
-            }
-
-
-            @media (max-width: 1024px) {
-                .parallax__item__img {
-                    height: 80vh; /* 태블릿 */
-                    overflow-y:scroll;
-                    overflow-y:hidden
-
-                }
-
-                #section1{
-                    height: 80vh;
-                }
-            }
-
-            @media(max-width: 768px) {
-                .parallax__item__img {
-                    height: 60vh; /* 작은 태블릿 */
-                }
-
-                #section1{
-                    height: 60vh;
-                }
-            }
-
-            @media (max-width: 479px) {
-                .parallax__item__img {
-                    height: 50vh; /* 작은 태블릿 */
-                }
-
-                #section1{
-                    height: 50vh;
-                }
-        }
-
-        .type-btn{width: 100%;}
-        .type-btn button{
-            width: 50px;
-            height: 30px;
-            color: #000000;
-            background-color: #fff;
-            border-radius: 20px;
-        }
-
-        .trip-data{
-            width: 100%;
-        }
-
-        .trip-data ul{
-            width: 100%;
-        }
-
-        .trip-data li{
-            color: #000000;
-            cursor: pointer;
-        }
-
-        .trip-data li:hover{
-            background-color: #fafafa;
-        }
-
-        .reservation {
-            position: relative; /* 드롭다운의 기준이 되는 부모 요소 */
-        }
-
-        .selct-box{
-            border-bottom: 0.0625rem solid #e5e5e5;
-            position: relative;
-        }
-
-        #dropdown-button button{
-            width: 100%;
-            padding: 10px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            cursor: pointer;
-            text-align: left;
-            font-size: 16px;
-        }
-
-        .select-box{
-            background: #ffffff;
-            position: relative;
-            width: 100%;
-            padding: 1rem 0;
-            border-bottom: 0.0625rem solid #e5e5e5;
-        }
-
-        .select-box ul{
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            position: absolute;
-            top: 0; /* .reservation의 위쪽과 정렬 */
-            left: 100%; /* .reservation의 오른쪽으로 배치 */
-            width: 200px; /* 드롭다운 메뉴 너비 */
-            background-color: #fff;
-            border: 1px solid #ccc;
-            display: none; /* 기본적으로 숨김 */
-            z-index: 10; /* 다른 요소보다 위에 표시 */
-        }
-
-        #dropdown-button{
-            background: #ffffff;
-            width: 100%;
-            text-align: left;
-        }
-
-        .resevation h3{
-            font-size: 25px;
-        }
-    </style>
 </head>
 <body>
     <div id="wrap">
@@ -529,10 +323,10 @@
                             <h3>에어프레미아와<br>함께 떠나볼까요?</h3>
                             <div class="trip-type">
                                 <div class="type-btn">
-                                    <button>왕복</button>
-                                    <button>편도</button>
+                                  <button id="round-trip" onclick="selectTripType('round-trip')">왕복</button>
+                                  <button id="one-way" onclick="selectTripType('one-way')">편도</button>
                                 </div>
-                            </div>
+                              </div>
                             <div class="trip-data">
                                 <ul>
                                     <li>
@@ -541,14 +335,14 @@
                                                 <span>출발지</span>
                                             </button>
                                             <ul id="dropdown-menu">
-                                                <li><span>서울/인천</span></li>
-                                                <li><span>홍콩</span></li>
-                                                <li><span>다낭</span></li>
-                                                <li><span>샌프란시스코</span></li>
-                                                <li><span>로스앤젤레스</span></li>
-                                                <li><span>뉴욕</span></li>
-                                                <li><span>방콕</span></li>
-                                                <li><span>도쿄/나리타</span></li>
+                                                <li class="dpt"><span>서울/인천(ICN)</span></li>
+                                                <li class="dpt"><span>홍콩(HKG)</span></li>
+                                                <li class="dpt"><span>다낭(DAD)</span></li>
+                                                <li class="dpt"><span>샌프란시스코(SFO)</span></li>
+                                                <li class="dpt"><span>로스앤젤레스(LAX)</span></li>
+                                                <li class="dpt"><span>뉴욕(EWR)</span></li>
+                                                <li class="dpt"><span>방콕(BKK)</span></li>
+                                                <li class="dpt"><span>도쿄/나리타(NRT)</span></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -558,29 +352,56 @@
                                                 <span>도착지</span>
                                             </button>
                                             <ul id="dropdown-menu2">
-                                                <li><span>서울/인천</span></li>
-                                                <li><span>홍콩</span></li>
-                                                <li><span>다낭</span></li>
-                                                <li><span>샌프란시스코</span></li>
-                                                <li><span>로스앤젤레스</span></li>
-                                                <li><span>뉴욕</span></li>
-                                                <li><span>방콕</span></li>
-                                                <li><span>도쿄/나리타</span></li>
+                                                <li class="arr"><span>서울/인천(ICN)</span></li>
+                                                <li class="arr"><span>홍콩(HKG)</span></li>
+                                                <li class="arr"><span>다낭(DAD)</span></li>
+                                                <li class="arr"><span>샌프란시스코(SFO)</span></li>
+                                                <li class="arr"><span>로스앤젤레스(LAX)</span></li>
+                                                <li class="arr"><span>뉴욕(EWR)</span></li>
+                                                <li class="arr"><span>방콕(BKK)</span></li>
+                                                <li class="arr"><span>도쿄/나리타(NRT)</span></li>
                                             </ul>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="selct-box">
-                                            <button>
-                                                <span>날짜</span>
-                                            </button>
+                                        <div class="select-box">
+                                            <div class="date-container">
+                                                <!-- 하나의 입력 필드로 출발 & 복귀 날짜 선택 -->
+                                                <div class="input-box">
+                                                    <!-- <label for="date-range" id="date-label">날짜</label> -->
+                                                    <input type="text" id="date-range" placeholder="날짜">
+                                                </div>
+                                            </div>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="selct-box">
-                                            <button>
-                                                <span>성인 1</span>
-                                            </button>
+                                        <div class="select-box">
+                                            <button class="amdin-box" id="passenger-btn" onclick="toggleDropdown()"></button>
+                                                <div class="passenger-selector">
+                                                    <div id="passenger-dropdown" class="dropdown hidden">
+                                                      <div class="dropdown-content">
+                                                        <div class="passenger-type">
+                                                          <label>성인</label>
+                                                          <button class="minus-btn" onclick="updatePassengerCount('adult', -1)">-</button>
+                                                          <span id="adult-count">1</span>
+                                                          <button class="plus-btn" onclick="updatePassengerCount('adult', 1)">+</button>
+                                                        </div>
+                                                        <div class="passenger-type">
+                                                          <label>소아</label>
+                                                          <button class="minus-btn" onclick="updatePassengerCount('child', -1)">-</button>
+                                                          <span id="child-count">0</span>
+                                                          <button class="plus-btn" onclick="updatePassengerCount('child', 1)">+</button>
+                                                        </div>
+                                                        <div class="passenger-type">
+                                                          <label>유아</label>
+                                                          <button class="minus-btn" onclick="updatePassengerCount('infant', -1)">-</button>
+                                                          <span id="infant-count">0</span>
+                                                          <button class="plus-btn" onclick="updatePassengerCount('infant', 1)">+</button>
+                                                        </div>
+                                                      </div>
+                                                      <button class="close-btn" onclick="closeDropdown()">확인</button>
+                                                    </div>
+                                                  </div>
                                         </div>
                                     </li>
                                 </ul>
@@ -588,10 +409,19 @@
                             <div class="serch-btn">
                                 <button>항공권 검색</button>
                             </div>
+                                            <!-- 모달 창 -->
+                            <div class="modal" id="warning-modal">
+                                <p>출발지를 먼저 선택해주세요!</p>
+                                <button id="close-modal">확인</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="destination">
+                    
+                </div>
             </section>
+
 
 
             <section class="parallax__item">
@@ -614,17 +444,17 @@
                     </ul>
                 </div>
             </section>
-    
-           
         </main>
-
     </div>
 
     
 
     <!-- 제이쿼리 불러오기 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
@@ -793,61 +623,191 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-        const button = document.getElementById("dropdown-button");
-        const menu = document.getElementById("dropdown-menu");
-        const options = menu.querySelectorAll("li");
+            const allLocations = [
+                "서울/인천(ICN)",
+                "홍콩(HKG)",
+                "다낭(DAD)",
+                "샌프란시스코(SFO)",
+                "로스앤젤레스(LAX)",
+                "뉴욕(EWR)",
+                "방콕(BKK)",
+                "도쿄/나리타(NRT)"
+            ];
 
-        // 버튼 클릭 시 드롭다운 메뉴 토글
-        button.addEventListener("click", () => {
-            const isMenuVisible = menu.style.display === "block";
-            menu.style.display = isMenuVisible ? "none" : "block";
-        });
+        let selectedDeparture = null; // 선택된 출발지
 
-        // 옵션 클릭 시 버튼 텍스트 변경 및 메뉴 닫기
-        options.forEach((option) => {
-            option.addEventListener("click", () => {
-                const selectedText = option.textContent;
-                button.querySelector("span").textContent = selectedText; // 버튼 텍스트 변경
-                menu.style.display = "none"; // 메뉴 닫기
+        // 모달 관련 요소
+        const modal = document.getElementById("warning-modal");
+        const closeModalButton = document.getElementById("close-modal");
+
+        // 모달 열기
+        function showModal() {
+            modal.classList.add("active");
+        }
+
+        // 모달 닫기
+        function closeModal() {
+            modal.classList.remove("active");
+        }
+
+        closeModalButton.addEventListener("click", closeModal);
+
+        // 드롭다운 초기화 함수
+        function initializeDropdown(buttonId, menuId, onSelect, validate) {
+            const button = document.getElementById(buttonId);
+            const menu = document.getElementById(menuId);
+
+            // 버튼 클릭 시 메뉴 토글
+            button.addEventListener("click", () => {
+                // 도착지 선택 시 출발지 선택 여부 검증
+                if (validate && !selectedDeparture) {
+                    showModal(); // 출발지가 선택되지 않았으면 모달 표시
+                    return;
+                }
+
+                const isMenuVisible = menu.style.display === "block";
+                menu.style.display = isMenuVisible ? "none" : "block";
             });
-        });
 
-        // 드롭다운 외부 클릭 시 메뉴 닫기
-        document.addEventListener("click", (event) => {
-            if (!button.contains(event.target) && !menu.contains(event.target)) {
-                menu.style.display = "none";
+            // 옵션 클릭 시 버튼 텍스트 변경 및 메뉴 닫기
+            menu.addEventListener("click", (event) => {
+                const option = event.target.closest("li");
+                if (option) {
+                    const selectedText = option.textContent.trim();
+                    button.querySelector("span").textContent = selectedText; // 버튼 텍스트 변경
+                    menu.style.display = "none"; // 메뉴 닫기
+                    if (onSelect) onSelect(selectedText); // 선택 콜백 호출
+                }
+            });
+
+            // 드롭다운 외부 클릭 시 메뉴 닫기
+            document.addEventListener("click", (event) => {
+                if (!button.contains(event.target) && !menu.contains(event.target)) {
+                    menu.style.display = "none";
+                }
+            });
+        }
+
+        // 도착지 목록 업데이트 함수
+        function updateDestinationMenu(destinationMenuId, selectedDeparture) {
+            const menu = document.getElementById(destinationMenuId);
+            menu.innerHTML = ""; // 기존 목록 비우기
+            let filteredLocations;
+
+            if (selectedDeparture === "서울/인천(ICN)") {
+                // 출발지가 인천이면 도착지에서 인천 제외
+                filteredLocations = allLocations.filter(location => location !== "서울/인천(ICN)");
+            } else {
+                // 출발지가 인천이 아니면 도착지는 인천만
+                filteredLocations = ["서울/인천(ICN)"];
+            }
+
+            // 도착지 목록 갱신
+            filteredLocations.forEach(location => {
+                const li = document.createElement("li");
+                li.textContent = location;
+                menu.appendChild(li);
+            });
+        }
+
+            // 출발지 드롭다운 초기화
+            initializeDropdown("dropdown-button", "dropdown-menu", (selectedText) => {
+                selectedDeparture = selectedText; // 선택된 출발지 저장
+                updateDestinationMenu("dropdown-menu2", selectedDeparture); // 도착지 목록 업데이트
+            });
+
+            // 도착지 드롭다운 초기화
+            initializeDropdown("dropdown-button2", "dropdown-menu2", null, true); // validate=true로 검증 활성화
+        });
+    </script>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script>
+    <script>
+        // Flatpickr 설정: 날짜 범위 선택
+        flatpickr("#date-range", {
+            mode: "range", // 범위 선택 활성화
+            dateFormat: "Y-m-d", // 날짜 형식
+            minDate: "today", // 오늘 이후로만 선택 가능
+            locale: "ko", // 한국어 설정 (Flatpickr 한국어 플러그인을 추가하면 활성화 가능)
+            onChange: function(selectedDates, dateStr, instance) {
+                // 선택한 날짜를 Label 태그에 표시
+                const dateLabel = document.getElementById("date-label");
+                //dateLabel.textContent = dateStr || "날짜"; // 선택된 날짜가 없으면 기본값 유지
             }
         });
-    });
 
+            document.addEventListener("click", function(event) {
+            const dateInput = document.getElementById("date-range");
+            const flatpickrCalendar = document.querySelector(".flatpickr-calendar");
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const button = document.getElementById("dropdown-button2");
-        const menu = document.getElementById("dropdown-menu2");
-        const options = menu.querySelectorAll("li");
-
-        // 버튼 클릭 시 드롭다운 메뉴 토글
-        button.addEventListener("click", () => {
-            const isMenuVisible = menu.style.display === "block";
-            menu.style.display = isMenuVisible ? "none" : "block";
+/*             // 클릭한 곳이 입력 필드나 캘린더가 아니면 닫기
+            if (!dateInput.contains(event.target) && !flatpickrCalendar.contains(event.target)) {
+                datePicker.close(); // Flatpickr 선택창 닫기
+            } */
         });
+    </script>
 
-        // 옵션 클릭 시 버튼 텍스트 변경 및 메뉴 닫기
-        options.forEach((option) => {
-            option.addEventListener("click", () => {
-                const selectedText = option.textContent;
-                button.querySelector("span").textContent = selectedText; // 버튼 텍스트 변경
-                menu.style.display = "none"; // 메뉴 닫기
-            });
-        });
+    <script>
+        let passengers = {
+        adult: 1,
+        child: 0,
+        infant: 0,
+        };
 
-        // 드롭다운 외부 클릭 시 메뉴 닫기
-        document.addEventListener("click", (event) => {
-            if (!button.contains(event.target) && !menu.contains(event.target)) {
-                menu.style.display = "none";
-            }
-        });
-    });
+        function toggleDropdown() {
+        const dropdown = document.getElementById('passenger-dropdown');
+        dropdown.classList.toggle('hidden');
+        }
+
+        function closeDropdown() {
+        const dropdown = document.getElementById('passenger-dropdown');
+        dropdown.classList.add('hidden');
+        }
+
+        function updatePassengerCount(type, value) {
+        const countElement = document.getElementById(`${type}-count`);
+        let currentCount = passengers[type];
+        
+        currentCount = Math.max(0, currentCount + value); // 최소값 0
+        passengers[type] = currentCount;
+        countElement.textContent = currentCount;
+        
+        updatePassengerButtonLabel();
+        }
+
+        function updatePassengerButtonLabel() {
+        const button = document.getElementById('passenger-btn');
+        const { adult, child, infant } = passengers;
+
+        let label = `성인 ${adult}명`;
+        if (child > 0) label += `, 소아 ${child}명`;
+        if (infant > 0) label += `, 유아 ${infant}명`;
+
+        button.textContent = label;
+        }
+
+        // 기본 값 업데이트
+        updatePassengerButtonLabel();
+    </script>
+
+    <script>
+        function selectTripType(selectedType) {
+        const roundTripButton = document.getElementById('round-trip');
+        const oneWayButton = document.getElementById('one-way');
+
+        if (selectedType === 'round-trip') {
+            roundTripButton.classList.add('selected');
+            oneWayButton.classList.remove('selected');
+        } else if (selectedType === 'one-way') {
+            oneWayButton.classList.add('selected');
+            roundTripButton.classList.remove('selected');
+        }
+        }
     </script>
 </body>
 </html>

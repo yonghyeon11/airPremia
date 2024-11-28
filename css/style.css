@@ -1,14 +1,45 @@
-#wrap{
-    width: 100%;
-    background-color: #ffffff;
+* {
+    margin: 0;
+    padding: 0;
 }
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
 
 #header{
     width: 100%;
-    height: 100px;
+    height: 80px;
+    position: fixed;
+    z-index: 1000;
 }
 
-.video-container{
+/* 기본 스타일 */
+section {
+    width: 100%;
+    transition: height 0.3s ease-in-out; /* 높이 변경 시 부드럽게 애니메이션 */
+}
+
+
+/* parallax__cont */
+#parallax__cont {
+    overflow: hidden;
+}
+.parallax__item {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.parallax__item__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     left: 0;
     top: 0;
@@ -19,39 +50,393 @@
     background-position: center;
 }
 
-.video-container video{
+.reservation-con {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    background-size: cover;
+    background-position: center;
+}
+
+.parallax__item__img ul{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+}
+.parallax__item__img li{
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+}
+
+.parallax__item__img video{
     position: absolute;
     width: 100%;
+    top: 5%;
 }
 
-
-
-section{
-
-}
-
-.parallax__item{
+.reservation-box{
+    background-image: url(/img/background.jpg);
     width: 100%;
-            height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
+    height: 50%;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0 20px;
+}
 
+.reservation-box .resevation{
+    margin-left: 50px;
+    width: 20%;
+    background-color: #ffffff;
+    padding: 2%;
+    border-radius: 30px;
+}
+
+
+.type-btn{
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.type-btn button:last-child{
+    margin-left: 5px;
+}
+
+.type-btn button{
+    border-radius: 30px;
+    padding: 10px 20px;
+    background: white;
+    color: black;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.type-btn button.selected {
+    background: #0C2340;
+    color: white;
+    border: none;
+  }
+  
+.type-btn button:not(.selected) {
+background: white;
+color: black;
+
+}
+
+.trip-data{
+    width: 100%;
+}
+
+.trip-data ul{
+    width: 100%;
+}
+
+.trip-data li{
+    margin: 10px 0 10px 0;
+    color: #000000;
+    cursor: pointer;
+}
+
+.trip-data li span{
+    font-size: 1.2rem;
+    margin-left: 5px;
+}
+
+.trip-data li:hover{
+    background-color: #fafafa;
+    
+}
+
+.reservation {
+    position: relative; /* 드롭다운의 기준이 되는 부모 요소 */
+}
+
+.selct-box{
+    border-bottom: 0.0625rem solid #e5e5e5;
+    position: relative;
+}
+
+.select-box:hover{
+    border-bottom: 0.5px solid #e34028;
+    transition: all 0.5s;
+}
+
+#dropdown-button button{
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+}
+
+.select-box{
+    background: #ffffff;
+    position: relative;
+    width: 100%;
+    padding: 1rem 0;
+    border-bottom: 0.0625rem solid #e5e5e5;
+}
+
+.select-box ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 10px; /* .reservation의 위쪽과 정렬 */
+    left: 20%; /* .reservation의 오른쪽으로 배치 */
+    width: 200px; /* 드롭다운 메뉴 너비 */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    display: none; /* 기본적으로 숨김 */
+    z-index: 10; /* 다른 요소보다 위에 표시 */
+}
+
+.select-box ul:active{
+    display: block;
+}
+
+.select-box li{
+    
+    padding: 10px 25px 10px 15px;
+}
+
+#dropdown-button{
+    background: #ffffff;
+    width: 100%;
+    text-align: left;
+    font-size: 20px;
+}
+
+#dropdown-button2{
+    font-size: 20px;
+    background: #ffffff;
+    width: 100%;
+    text-align: left;
+}
+
+.resevation h3{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.serch-btn{
+    padding: 20px 30px 0 30px;
+}
+
+.serch-btn button{
+    font-weight: bold;
+    color: #fff;
+    width: 100%;
+    border: 1px solid #0C2340;
+    background-color: #0C2340;
+    border-radius: 20px;
+    height: 45px;
+}
+
+.serch-btn button:hover{
+    background-color: #e34028;
+    border: none;
+    transition: all 0.3s;
+}
+
+
+.date-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.input-box {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input-box input {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.2rem;
+    margin-left: 5px;
+}
+
+.input-box label{
+    margin-left: 5px;
+}
+
+
+.flatpickr-month {
+    background-color: #0c2340; /* 월 선택 배경 */
+    color: white;
+}
+
+.amdin-box{
+    font-size: 20px;
+}
+
+
+
+
+#passenger-btn{
+    width: 100%;
+    background-color: #ffffff;
+    margin-left: 5px;
+    text-align: left;
+}
+
+
+.passenger-selector {
+    position: relative;
+  }
+  
+.passenger-selector button {
+font-size: 16px;
+cursor: pointer;
+}
+
+.dropdown {
+position: absolute;
+top: 50px;
+left: 0;
+background: white;
+border: 1px solid #ccc;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+width: 300px;
+z-index: 10;
+display: flex;
+flex-direction: column;
+border-radius: 4px;
+}
+
+.hidden {
+display: none;
+}
+
+.dropdown-content {
+padding: 16px;
+}
+
+.passenger-type {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: 8px 0;
+}
+
+.minus-btn, .plus-btn {
+width: 30px;
+height: 30px;
+font-size: 18px;
+text-align: center;
+}
+
+.close-btn {
+margin-top: 16px;
+width: 100%;
+background: #0078d4;
+color: white;
+border: none;
+padding: 8px 0;
+border-radius: 4px;
+}
+
+
+/* 모달 스타일 */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    display: none;
+}
+
+.modal.active {
+    display: block; /* 모달 활성화 시 보이기 */
+}
+
+.modal button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 
 
 
 
-article{
-    width: 100%;
-    height: 100vh;
-    background-color: cornflowerblue;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*======================== 반응형 ==========================*/
+
+@media (max-width: 1024px) {
+    .parallax__item__img {
+        height: 80vh; /* 태블릿 */
+        overflow-y:scroll;
+        overflow-y:hidden
+
+    }
+
+    #section1{
+        height: 80vh;
+    }
 }
-footer{
-    width: 100%;
-    height: 100vh;
-    background-color: darkgrey;
+
+@media(max-width: 768px) {
+    .parallax__item__img {
+        height: 60vh; /* 작은 태블릿 */
+    }
+
+    #section1{
+        height: 60vh;
+    }
+}
+
+@media (max-width: 479px) {
+    .parallax__item__img {
+        height: 50vh; /* 작은 태블릿 */
+    }
+
+    #section1{
+        height: 50vh;
+    }
 }

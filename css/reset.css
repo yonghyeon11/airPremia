@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 /* 여백 초기화 */
 * {margin: 0; padding: 0;}
 
@@ -6,9 +10,9 @@ a {color: #222; text-decoration: none;}
 
 
 /* 폰트 초기화 */
-body, input, textarea, select, button, table {
-    font-family:'Nanum Gothic',AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif;
-    color: #222; font-size: 13px; line-height: 1.5;}
+html{
+    font-family: "Noto Sans KR", sans-serif;
+}
 
 /* 폰트 스타일 초기화 */
 em,address {font-style: normal;}
