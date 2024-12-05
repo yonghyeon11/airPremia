@@ -428,7 +428,7 @@
             <section id="trip-destination">
                 <h2>여행지 정보</h2>
                 <div class="destination">
-                    <div class="swiper mySwiper2">
+                    <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
                           <div class="swiper-slide">
                             <img src="/img/tokyo.jpg" alt="">
@@ -441,7 +441,7 @@
                           <div class="swiper-slide">
                             <img src="/img/HKG.jpeg" alt="">
                             <div class="travel-destination">
-                                <span>홍콩</span>
+                                <span>서울/인천 <> 홍콩</span>
                                 <span>왕복</span>
                                 <span>KRW 289,000 ~</span>
                             </div>
@@ -449,7 +449,7 @@
                           <div class="swiper-slide">
                             <img src="/img/DAD.jpg" alt="">
                             <div class="travel-destination">
-                                <span>다낭</span>
+                                <span>서울/인천 <> 다낭</span>
                                 <span>왕복</span>
                                 <span>KRW 289,000 ~</span>
                             </div>
@@ -457,7 +457,7 @@
                           <div class="swiper-slide">
                             <img src="/img/SFO.jpg" alt="">
                             <div class="travel-destination">
-                                <span>샌프란시스코</span>
+                                <span>서울/인천 <> 샌프란시스코</span>
                                 <span>왕복</span>
                                 <span>KRW 289,000 ~</span>
                             </div>
@@ -465,7 +465,7 @@
                           <div class="swiper-slide">
                             <img src="/img/LA.jpg" alt="">
                             <div class="travel-destination">
-                                <span>로스앤젤레스</span>
+                                <span>서울/인천 <> 로스앤젤레스</span>
                                 <span>왕복</span>
                                 <span>KRW 289,000 ~</span>
                             </div>
@@ -473,7 +473,7 @@
                           <div class="swiper-slide">
                             <img src="/img/NY.jpg" alt="">
                             <div class="travel-destination">
-                                <span>뉴욕</span>
+                                <span>서울/인천 <> 뉴욕</span>
                                 <span>왕복</span>
                                 <span>KRW 289,000 ~</span>
                             </div>
@@ -481,7 +481,7 @@
                           <div class="swiper-slide">
                             <img src="/img/BKK.jpg" alt="">
                             <div class="travel-destination">
-                                <span>방콕</span>
+                                <span>서울/인천 <> 방콕</span>
                                 <span>왕복</span>
                                 <span>KRW 289,000 ~</span>
                             </div>
@@ -492,14 +492,25 @@
                       </div>
                 </div>
             </section>
-            <section class="parallax__item">
-                <div class="parallax__item__img">
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
+            <section id="event-place">
+                <h2>Event</h2>
+                <div class="event-container">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide"><img src="/img/event/event1.png" alt=""></div>
+                          <div class="swiper-slide"><img src="/img/event/event2.png" alt=""></div>
+                          <div class="swiper-slide"><img src="/img/event/event3.png" alt=""></div>
+                          <div class="swiper-slide"><img src="/img/event/event4.png" alt=""></div>
+                          <div class="swiper-slide"><img src="/img/event/event5.png" alt=""></div>
+                          <div class="swiper-slide"><img src="/img/event/event6.jpg" alt=""></div>
+                          <div class="swiper-slide"><img src="/img/event/event7.jpg" alt=""></div>
+                          <div class="swiper-slide"><img src="/img/event/event8.png" alt=""></div>
+                          <div class="swiper-slide"><img src="/img/event/event9.png" alt=""></div>
+                          <div class="swiper-slide"><img src="/img/event/event10.jpg" alt=""></div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                      </div>
                 </div>
             </section>
         </main>
@@ -814,41 +825,41 @@
 
     <script>
         let passengers = {
-        adult: 1,
-        child: 0,
-        infant: 0,
+            adult: 1,
+            child: 0,
+            infant: 0,
         };
 
         function toggleDropdown() {
-        const dropdown = document.getElementById('passenger-dropdown');
-        dropdown.classList.toggle('hidden');
+            const dropdown = document.getElementById('passenger-dropdown');
+            dropdown.classList.toggle('hidden');
         }
 
         function closeDropdown() {
-        const dropdown = document.getElementById('passenger-dropdown');
-        dropdown.classList.add('hidden');
+            const dropdown = document.getElementById('passenger-dropdown');
+            dropdown.classList.add('hidden');
         }
 
         function updatePassengerCount(type, value) {
-        const countElement = document.getElementById(`${type}-count`);
-        let currentCount = passengers[type];
+            const countElement = document.getElementById(`${type}-count`);
+            let currentCount = passengers[type];
         
-        currentCount = Math.max(0, currentCount + value); // 최소값 0
-        passengers[type] = currentCount;
-        countElement.textContent = currentCount;
+            currentCount = Math.max(0, currentCount + value); // 최소값 0
+            passengers[type] = currentCount;
+            countElement.textContent = currentCount;
         
-        updatePassengerButtonLabel();
+            updatePassengerButtonLabel();
         }
 
         function updatePassengerButtonLabel() {
-        const button = document.getElementById('passenger-btn');
-        const { adult, child, infant } = passengers;
+            const button = document.getElementById('passenger-btn');
+            const { adult, child, infant } = passengers;
 
-        let label = `성인 ${adult}명`;
-        if (child > 0) label += `, 소아 ${child}명`;
-        if (infant > 0) label += `, 유아 ${infant}명`;
+            let label = `성인 ${adult}명`;
+            if (child > 0) label += `, 소아 ${child}명`;
+            if (infant > 0) label += `, 유아 ${infant}명`;
 
-        button.textContent = label;
+            button.textContent = label;
         }
 
         // 기본 값 업데이트
@@ -856,17 +867,26 @@
     </script>
 
     <script>
-        function selectTripType(selectedType) {
-        const roundTripButton = document.getElementById('round-trip');
-        const oneWayButton = document.getElementById('one-way');
+        document.addEventListener('DOMContentLoaded', () => {
+            const roundTripButton = document.getElementById('round-trip');
+            const oneWayButton = document.getElementById('one-way');
 
-        if (selectedType === 'round-trip') {
+            // 디폴트로 'round-trip' 선택
             roundTripButton.classList.add('selected');
             oneWayButton.classList.remove('selected');
-        } else if (selectedType === 'one-way') {
-            oneWayButton.classList.add('selected');
-            roundTripButton.classList.remove('selected');
-        }
+        });
+
+        function selectTripType(selectedType) {
+            const roundTripButton = document.getElementById('round-trip');
+            const oneWayButton = document.getElementById('one-way');
+
+            if (selectedType === 'round-trip') {
+                roundTripButton.classList.add('selected');
+                oneWayButton.classList.remove('selected');
+            } else if (selectedType === 'one-way') {
+                oneWayButton.classList.add('selected');
+                roundTripButton.classList.remove('selected');
+            }
         }
     </script>
 
@@ -891,6 +911,17 @@
                 slidesPerView: 5,  //브라우저가 1024보다 클 때
                 spaceBetween: 50,
                 },
+            },
+        });
+    </script>
+
+    <script>
+        var swiper = new Swiper('.event-container .swiper', {
+            slidesPerView: 2,
+            /* direction: getDirection(), */
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
             },
         });
     </script>
