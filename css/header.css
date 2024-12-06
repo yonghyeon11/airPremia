@@ -531,11 +531,13 @@ html.m-menu-scroll, html.m-menu-scroll > body {
     background-color:#fff;
     z-index:-5;
     transition:height .3s;
+    display: none;
 }
 
 /* 모바일 메뉴 리스트 */
 .m-header > .m-menu-list {
     overflow-y:auto;
+    z-index: 1000;
 }
 
 .m-header > .m-menu-list ul{
@@ -543,6 +545,11 @@ html.m-menu-scroll, html.m-menu-scroll > body {
     overflow-y: auto;  /* 세로 스크롤 활성화 */
     overflow-x: hidden; /* 가로 스크롤 숨기기 */
     /* margin-top: 20px; */
+    background-color: transparent;
+}
+
+.m-header > .m-menu-list ul.active{
+    background-color:#ffffff
 }
 
 .m-header > .m-menu-list > ul > li {
@@ -647,6 +654,7 @@ html.m-menu-scroll, html.m-menu-scroll > body {
     transform:translate(-50%, -50%);
     visibility:hidden;
     opacity:0;
+    z-index: 999;
 }
 
 .m-header > .m-search-on.active {
@@ -687,4 +695,9 @@ html.m-menu-scroll, html.m-menu-scroll > body {
 
 .m-header > .m-search-on > .m-recommend-word > ul > li > a {
     padding:10px 0;
+}
+
+
+@media (max-width:1024px){
+
 }
