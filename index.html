@@ -581,10 +581,70 @@
                       </div>
                 </div>
             </section>
+            <section id="coalition">
+                <h2>제휴 서비스</h2>
+                <div class="coalition-container">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa-solid fa-hotel fa-lg"></i>
+                                    <span>호텔</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <img src="" alt="">
+                                    <span>렌트카</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <img src="" alt="">
+                                    <span>기내 면세점</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <img src="" alt="">
+                                    <span>엑티비티</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <img src="" alt="">
+                                    <span>여행자 보험</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <img src="" alt="">
+                                    <span>여행 상품</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </section>
         </main>
     </div>
 
-    
+    <script src="https://kit.fontawesome.com/31e6722a59.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script>
+
     <!-- swiper -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -598,6 +658,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollToPlugin.min.js"></script>
+    
     <script>
         const panel = document.querySelector("#section1");
 
@@ -611,78 +672,70 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-        const mobileMask = document.querySelector(".mobile-mask");
-        const menuList = document.querySelector(".m-menu-list");
-        const searchOn = document.querySelector(".m-search-on");
-        const reservation = document.querySelector("#reservation");
+            // 요소 선택
+            const mobileMask = document.querySelector(".mobile-mask");
+            const menuList = document.querySelector(".m-menu-list");
+            const menuListUl = document.querySelector(".m-menu-list > ul");
+            const searchOn = document.querySelector(".m-search-on");
+            const reservation = document.querySelector(".reservation");
+            const menuButton = document.querySelector(".m-menu-btn");
+            const menuToggle = document.querySelector(".menu-toggle");
 
-        // 예약 영역 클릭을 방해하는 요소 숨기기
-        const disableObstructingElements = () => {
-            if (mobileMask) mobileMask.style.display = "none"; // mobile-mask 숨기기
-            if (menuList && menuList.classList.contains("active")) {
-            menuList.classList.remove("active"); // 메뉴 비활성화
+            // 예약 영역 초기 스타일 설정
+            if (reservation) {
+                reservation.style.position = "relative";
+                reservation.style.zIndex = "1050"; // 초기 z-index 설정
             }
-            if (searchOn) searchOn.style.display = "none"; // 검색창 숨기기
-        };
 
-        // 예약 영역을 클릭 시 방해 요소를 비활성화
-        reservation.addEventListener("click", disableObstructingElements);
-        });
+            // 예약 영역 클릭 시 방해 요소 비활성화
+            const disableObstructingElements = () => {
+                if (mobileMask) mobileMask.style.display = "none"; // mobile-mask 숨기기
+                if (menuList && menuList.classList.contains("active")) {
+                    menuList.classList.remove("active"); // 메뉴 닫기
+                }
+                if (searchOn) searchOn.style.display = "none"; // 검색창 숨기기
+            };
 
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-        const reservation = document.querySelector(".reservation");
-
-        // 예약 영역을 최상위로 설정
-        reservation.style.position = "relative";
-        reservation.style.zIndex = "1050"; // 방해 요소보다 높은 z-index 설정
-        });
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-        const menuToggle = document.querySelector(".menu-toggle");
-        const menuList = document.querySelector(".m-menu-list");
-        const searchOn = document.querySelector(".m-search-on");
-
-        // 메뉴 닫기
-        const closeMenu = () => {
-            if (menuList && menuList.classList.contains("active")) {
-            menuList.classList.remove("active");
+            if (reservation) {
+                reservation.addEventListener("click", disableObstructingElements);
             }
-            if (searchOn) {
-            searchOn.classList.remove("active");
+
+            // 메뉴 버튼 클릭 시 z-index 조정 및 m-menu-list > ul 활성화
+            if (menuButton) {
+                menuButton.addEventListener("click", () => {
+                    // z-index 조정
+                    if (reservation) {
+                        const currentZIndex = reservation.style.zIndex;
+                        reservation.style.zIndex = currentZIndex === "1000" || currentZIndex === "" ? "1" : "1000";
+                    }
+
+                    // m-menu-list > ul 활성화 토글
+                    if (menuListUl) {
+                        menuListUl.classList.toggle("active");
+                    }
+                });
             }
-        };
 
-        // 예약 영역 클릭 시 메뉴 닫기
-        document.querySelector(".reservation").addEventListener("click", closeMenu);
-
-        // 메뉴 토글 클릭 시 열기/닫기
-        menuToggle.addEventListener("click", () => {
-            if (menuList) {
-            menuList.classList.toggle("active");
+            // 메뉴 토글 클릭 시 메뉴 열기/닫기
+            if (menuToggle) {
+                menuToggle.addEventListener("click", () => {
+                    if (menuList) menuList.classList.toggle("active");
+                    if (searchOn) searchOn.classList.toggle("active");
+                });
             }
-            if (searchOn) {
-            searchOn.classList.toggle("active");
-            }
-        });
-        });
 
-        document.addEventListener("DOMContentLoaded", () => {
-        const menuButton = document.querySelector(".m-menu-btn");
-        const menuListUl = document.querySelector(".m-menu-list > ul");
-
-        menuButton.addEventListener("click", () => {
-            if (menuListUl) {
-            menuListUl.classList.toggle("active"); // active 클래스 추가/제거
+            // 예약 영역 클릭 시 메뉴 닫기
+            if (reservation) {
+                reservation.addEventListener("click", () => {
+                    if (menuList && menuList.classList.contains("active")) {
+                        menuList.classList.remove("active");
+                    }
+                    if (searchOn && searchOn.classList.contains("active")) {
+                        searchOn.classList.remove("active");
+                    }
+                });
             }
         });
-        });
-
-
     </script>
 
     <script>
@@ -932,12 +985,6 @@
         });
     </script>
 
-
-
-    
-
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script>
     <script>
         // Flatpickr 설정: 날짜 범위 선택
         flatpickr("#date-range", {

@@ -513,7 +513,23 @@ text-align: center;
     margin-top: 150px;
 }
 
+#coalition{
+    margin-top: 150px;
+}
 
+
+#coalition h2{
+    margin-left: 15px;
+    font-size: 2rem;
+    color: #e34028;
+    font-weight: bold;
+}
+
+.coalition-container ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 
 
 
