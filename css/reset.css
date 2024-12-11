@@ -28,3 +28,10 @@ img,fieldset {border:0 none;}
 
 /* 버튼 초기화 */
 button {border:0; cursor: pointer;}
+
+.divider{
+    width: 1px;
+    height: 20px;
+    background-color: #e3e7ee;
+    margin: 0 10px 0 10px;
+}

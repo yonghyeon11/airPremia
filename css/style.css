@@ -547,6 +547,7 @@ text-align: center;
     border-radius: 20px;
     height: 300px;
     display: flex;
+    margin: 0 15px 0 15px;
 }
 
 .service-box{
@@ -571,7 +572,7 @@ text-align: center;
 }
 
 #notice{
-    margin-top: 150px;
+    margin: 150px 0 100px 0;
 }
 
 
@@ -635,7 +636,76 @@ text-align: center;
 footer{
     width: 100%;
     background-color: #f9f9fb;
+
 }
+
+.footer-container{
+    max-width: 1920px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+}
+
+.footer-container span{
+    font-size: 14px;
+    color: #333d4b;
+} 
+
+.footer-info li{
+    display: flex;
+}
+
+.time-wrap{
+    display: flex;
+}
+
+.footer-img{
+    width: 10%;
+    margin-right: 30px;
+}
+
+.footer-img img{
+    width: 100%;
+    
+}
+
+.footer-con{
+    display: flex;
+    margin-left: 15px;
+}
+
+.reg-info{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: start;
+    margin-right: 15px;
+}
+
+.email-btn{
+    background: #ffffff;
+    width: 100%;
+    height: 30px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.time-wrap strong{
+    margin-top: 10px;
+    font-size: 30px;
+
+}
+
+.time-wrap span{
+    margin-top: 15px;
+}
+
+.time-wrap .divider{
+    margin-top: 15px;
+}
+
 
 
 
