@@ -714,12 +714,40 @@
                         </li>
                     </ul>
                     <div class="sns-wrap">
-                        <a href=""><span>에어프레미아 뉴스레터 구독하기</span></a>
+                        <a href="">
+                            <span>에어프레미아 뉴스레터 구독하기</span>
+                        </a>
                         <div class="sns-btn">
-    
+                            <ul>
+                                <li>
+                                    <a href="https://www.instagram.com/airpremia_official" target="_blank">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.facebook.com/airpremia.official/" target="_blank">
+                                        <i class="fa-brands fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://x.com/AirPremia" target="_blank">
+                                        <i class="fa-brands fa-x-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com/AIRPREMIA">
+                                        <i class="fa-brands fa-youtube"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://blog.naver.com/airpremia">
+                                        <i class="fa-solid fa-blog"></i>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                         <div class="capy-right">
-                            <span>© copyright 2024. yonghyeon all right reserved. 본 사이트는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.</span>
+                            <p>© copyright 2024. yonghyeon all right reserved. 본 사이트는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.</p>
                         </div>
                     </div>
                 </div>
@@ -1273,6 +1301,26 @@
                 image.src = defaultImage;
             });
             });
+        });
+        });
+    </script>
+    <script>
+        const listItems = document.querySelectorAll('#notice .cont li');
+
+        // 각 li 태그에 이벤트 추가
+        listItems.forEach(item => {
+        item.addEventListener('mouseover', () => {
+            const h4 = item.querySelector('h4'); // li 내부의 h4 태그 선택
+            if (h4) {
+            h4.style.color = '#e34028'; // 색상 변경
+            }
+        });
+
+        item.addEventListener('mouseout', () => {
+            const h4 = item.querySelector('h4');
+            if (h4) {
+            h4.style.color = ''; // 원래 색상으로 복원 (기본 스타일로 되돌림)
+            }
         });
         });
     </script>
