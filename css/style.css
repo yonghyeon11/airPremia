@@ -647,13 +647,15 @@ footer{
     padding: 2%;
 }
 
-.footer-container span{
-    font-size: 14px;
-    color: #333d4b;
-} 
 
 .footer-info li{
     display: flex;
+}
+
+.footer-info span{
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #a9a9a9;
 }
 
 .time-wrap{
@@ -692,18 +694,58 @@ footer{
     margin-top: 10px;
 }
 
-.time-wrap strong{
+.reg-info strong{
     margin-top: 10px;
     font-size: 30px;
+}
 
+.reg-info h3{
+    font-size: 14px;
 }
 
 .time-wrap span{
+    font-size: 14px;
+    color: #a9a9a9;
     margin-top: 15px;
 }
 
 .time-wrap .divider{
     margin-top: 15px;
+}
+
+.sns-wrap{
+    margin-top: 15px;
+}
+
+.sns-wrap span:hover{
+    color: #000000;
+    border-bottom: 1px solid #000000;
+    font-weight: bold;
+}
+
+.sns-wrap p{
+    font-size: 14px;
+    color: #a9a9a9;
+    margin-top: 10px;
+}
+
+.sns-btn ul{
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.sns-btn li{
+    margin-right: 10px;
+}
+
+.sns-btn li i{
+    font-size: 25px;
+    color: #a9a9a9;
+}
+
+.sns-btn li i:hover{
+    color: black;
 }
 
 
