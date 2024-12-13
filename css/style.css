@@ -748,6 +748,19 @@ footer{
     color: black;
 }
 
+.w3c{
+    display: flex;
+}
+
+.w3c img{
+    width: 80px;
+    height: 30px;
+}
+
+.w3c img:last-child{
+    margin-left: 5px;
+}
+
 
 
 
