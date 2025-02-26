@@ -793,7 +793,27 @@ footer{
 
     .reservation-box .resevation{
         margin-left: 0;
-        width: 100%;
+        width: 80%;
+    }
+
+    .reservation-box{
+        justify-content: center;
+    }
+
+    .footer-container{
+        flex-direction: column-reverse;
+    }
+
+    .reg-info{
+        margin: 20px 0 0 15px;
+    }
+
+    .email-btn{
+        width: 50%;
+    }
+
+    .footer-con{
+        margin-top: 15px;
     }
 }
 
@@ -809,9 +829,38 @@ footer{
     .parallax__item{
         height: 75vh;
     }
+
+    .coalition-container ul{
+        flex-wrap: wrap;
+    }
+
+    .coalition-container li{
+        width: 30%;
+        margin-top: 10px;
+    }
+
+    .coalition-container{
+        height: 350px;
+    }
+
+    .service-box span{
+        margin-top: 10px;
+    }
+
+    .footer-con{
+        flex-direction: column;
+    }
+
+    .footer-img{
+        width: 15%;
+    }
+
+    .footer-info{
+        margin-top: 10px;
+    }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 480px) {
     .parallax__item__img {
         height: 50vh; /* 작은 태블릿 */
     }
@@ -819,4 +868,28 @@ footer{
     #section1{
         height: 50vh;
     }
+
+    .sns-wrap{
+        margin-top: 0;
+    }
+
+    .footer-info span{
+        font-size: 10px;
+    }
+
+    .sns-wrap p{
+        font-size: 8px;
+    }
+
+    .sns-btn li i{
+        font-size: 15px;
+    }
+
+
+
+
+
+
+
+
 }
